@@ -1,0 +1,26 @@
+.adduserContainer{
+width: 30px;
+}
+.addUserTitle{
+    text-align: center;
+    color:white;
+    background: #574284;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+.addUserBody{
+    padding:20px 20px 20px 20px;
+}
+.addBodyRow{
+    margin-bottom: 20px;
+}
+.submitBtn{
+    color:white;
+    background: #574284;
+    outline: none;
+    border: none;
+}
+.submitBtn:hover{
+    background: #574284 !important;
+}

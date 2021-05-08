@@ -1,0 +1,26 @@
+.loginBackground{
+    background: #574284;
+    padding-top: 14%;
+    padding-bottom: 18%;
+}
+.loginBox{
+    background-color: white;
+    padding:20px 30px 20px 30px;
+    border-radius: 5px;
+}
+.loginBtn{
+    margin-top: 30px;
+    background: #574284;
+    width: 200px;
+}
+.loginInput{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.ag-theme-balham .ag-header-row {
+    color: white !important;
+    background-color: #574284;
+    
+    }
+
+

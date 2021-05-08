@@ -1,0 +1,44 @@
+
+
+// Your variable overrides
+$highlight-color:  white;
+$sidebar-bg-color: #574284;
+$sidebar-width: 300px !default;
+
+
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+
+.menuHeader{    
+    padding-bottom: 5px;    
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid white !important;
+}
+.menu{
+     margin-bottom :49vh !important;
+    
+    
+}
+.menuFooter{
+    border-top:  1px solid white !important;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
+}
+.sidebarMenu{
+    height: 100vh;
+    font-size: 18px !important;
+    
+}
+
+.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+    background-color: #574284 !important;
+}
+.pro-item-content{
+    font-size: 20px !important;
+    
+}
+

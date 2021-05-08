@@ -1,0 +1,30 @@
+.userHead{
+    width: 78%;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.userTitle{
+    margin-bottom: 20px;
+}
+
+.useradd{
+    color: green;
+    font-size: 25px;
+    padding-top: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.iconColor{
+    color: green;
+    cursor: pointer;
+}
+.icondelete{
+    color: red;
+    cursor: pointer;
+}
+.userGrid{
+    font-size: 15px;
+    
+}
+
+
