@@ -8,8 +8,8 @@ import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 import moment from 'moment';
 import axios from "axios";
-import JsPDF from 'jspdf';
-import 'jspdf-autotable';
+// import JsPDF from 'jspdf';
+// import 'jspdf-autotable';
 import {
   Button,
   Form,
@@ -379,154 +379,154 @@ const   exportexcel = () => {
     .catch(err => console.log('Error writing excel export', err));
 };
 
-const GeneratePDF = (Data,username,machinename,start,end) => {
-	// initialize jsPDF
-    const doc = new JsPDF('a4');
-	const tableColumn = [
-		'User Name',
-            'User Mobile',
-            'Machine Name',
-            'Machine Mobile',
-            'Base Amount',
-            'Time(minutes)',
-            'Total Amount',
-            'Status',
-            'Start Date' 
-	];
+// const GeneratePDF = (Data,username,machinename,start,end) => {
+// 	// initialize jsPDF
+//     const doc = new JsPDF('a4');
+// 	const tableColumn = [
+// 		'User Name',
+//             'User Mobile',
+//             'Machine Name',
+//             'Machine Mobile',
+//             'Base Amount',
+//             'Time(minutes)',
+//             'Total Amount',
+//             'Status',
+//             'Start Date' 
+// 	];
 
 
-	// define an empty array of rows
-	const tableRows = [];
+// 	// define an empty array of rows
+// 	const tableRows = [];
 
-	// for each ticket pass all its data into an array
-	rowData.forEach(e => {
-		const ticketData = [
-			e.firstname,
-            e.umobile,
-            e.machinename,
-            e.mmobile,
-             e.baseamount,
-             e.minutes,
-             e.totalamount,
-            e.paidstatus,
-            e.startdate 			
+// 	// for each ticket pass all its data into an array
+// 	rowData.forEach(e => {
+// 		const ticketData = [
+// 			e.firstname,
+//             e.umobile,
+//             e.machinename,
+//             e.mmobile,
+//              e.baseamount,
+//              e.minutes,
+//              e.totalamount,
+//             e.paidstatus,
+//             e.startdate 			
 			
-			// called date-fns to format the date on the ticket
-			// format(new Date(ticket.updated_at), 'yyyy-MM-dd')
-		];
-		// push each tickcet's info into a row
-		tableRows.push(ticketData);
-	});
+// 			// called date-fns to format the date on the ticket
+// 			// format(new Date(ticket.updated_at), 'yyyy-MM-dd')
+// 		];
+// 		// push each tickcet's info into a row
+// 		tableRows.push(ticketData);
+// 	});
 
-	// startY is basically margin-top
-	//	doc.autoTable({ html: '#my-table' });
+// 	// startY is basically margin-top
+// 	//	doc.autoTable({ html: '#my-table' });
 
-	doc.autoTable({
-		html: '#table',
-		didParseCell(data) {
-			if (data.cell.row.index%2 === 0) {
-				data.cell.styles.textColor = [255, 255, 255];
-				data.cell.styles.fillColor = '#FF5783';
-			}else{
-				data.cell.styles.textColor = [255, 255, 255];
-				data.cell.styles.fillColor = '#018E8F';
-			}
-		}
-	});
-	//     doc.autoTable({styles: { fontSize: 22},})
+// 	doc.autoTable({
+// 		html: '#table',
+// 		didParseCell(data) {
+// 			if (data.cell.row.index%2 === 0) {
+// 				data.cell.styles.textColor = [255, 255, 255];
+// 				data.cell.styles.fillColor = '#FF5783';
+// 			}else{
+// 				data.cell.styles.textColor = [255, 255, 255];
+// 				data.cell.styles.fillColor = '#018E8F';
+// 			}
+// 		}
+// 	});
+// 	//     doc.autoTable({styles: { fontSize: 22},})
 
-	// 	 doc.autoTable(tableColumn, tableRows, { startY: 20 ,didParseCell: (HookData) => {console.log(HookData); HookData.doc.setFontSize(10)} });
-	//   //  doc.autoTable( {head:[[tableColumn]], body:[[tableRows]] });
-	// 	doc.autoTable({styles: { fontSize: 22},})
+// 	// 	 doc.autoTable(tableColumn, tableRows, { startY: 20 ,didParseCell: (HookData) => {console.log(HookData); HookData.doc.setFontSize(10)} });
+// 	//   //  doc.autoTable( {head:[[tableColumn]], body:[[tableRows]] });
+// 	// 	doc.autoTable({styles: { fontSize: 22},})
 
 	
-	// var totalPagesExp=''
-	// if (typeof doc.putTotalPages === 'function') {
-	//     doc.putTotalPages(totalPagesExp);
-	//   }
-	function monthName(mon) {
-		return [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'November',
-			'December'
-		][mon - 1];
-	}
+// 	// var totalPagesExp=''
+// 	// if (typeof doc.putTotalPages === 'function') {
+// 	//     doc.putTotalPages(totalPagesExp);
+// 	//   }
+// 	function monthName(mon) {
+// 		return [
+// 			'January',
+// 			'February',
+// 			'March',
+// 			'April',
+// 			'May',
+// 			'June',
+// 			'July',
+// 			'August',
+// 			'September',
+// 			'November',
+// 			'December'
+// 		][mon - 1];
+// 	}
 
-	console.log(monthName(7));
-	const date = Date().split(' ');
-	const date1 = new Date();
+// 	console.log(monthName(7));
+// 	const date = Date().split(' ');
+// 	const date1 = new Date();
 
-	// we use a date string to generate our filename.
-	const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
-	// ticket title. and margin-top + margin-left
-	doc.setFontSize(10)
-	doc.text('Summary Report', 95, 5);
-	doc.setFontSize(6);
+// 	// we use a date string to generate our filename.
+// 	const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
+// 	// ticket title. and margin-top + margin-left
+// 	doc.setFontSize(10)
+// 	doc.text('Summary Report', 95, 5);
+// 	doc.setFontSize(6);
 	 
 
-	// doc.addImage(`${process.env.PUBLIC_URL}/assets/images/logos/Epllogo.png`, 'png', 165, 3, 29, 7);
-	doc.text(`From-Date : ${startDate}`, 14, 10);
-	doc.text(`To-Date :  ${endDate}`, 14, 15);
-			// doc.text(`User Name : ${firstname}`, 14, 20);
-			// doc.text(`Machine Name : ${machinename}`, 14, 25);
-		doc.text(`Created on : ${moment().format('MM/DD/YYYY h:mm:ss A ')}`, 14, 30);
+// 	// doc.addImage(`${process.env.PUBLIC_URL}/assets/images/logos/Epllogo.png`, 'png', 165, 3, 29, 7);
+// 	doc.text(`From-Date : ${startDate}`, 14, 10);
+// 	doc.text(`To-Date :  ${endDate}`, 14, 15);
+// 			// doc.text(`User Name : ${firstname}`, 14, 20);
+// 			// doc.text(`Machine Name : ${machinename}`, 14, 25);
+// 		doc.text(`Created on : ${moment().format('MM/DD/YYYY h:mm:ss A ')}`, 14, 30);
 
-	// doc.text(`Year : ${year }`, 14, 15);
-	doc.autoTable(tableColumn, tableRows, {
-		startY: 32,
-		theme: 'grid',
-		alternateRowStyles: {
-			fillColor: [213, 237, 237],
-		  },
-		  minCellHeight: 4,
+// 	// doc.text(`Year : ${year }`, 14, 15);
+// 	doc.autoTable(tableColumn, tableRows, {
+// 		startY: 32,
+// 		theme: 'grid',
+// 		alternateRowStyles: {
+// 			fillColor: [213, 237, 237],
+// 		  },
+// 		  minCellHeight: 4,
 
 		 
-		headerStyles: {
-			//  lineWidth: 1,
-			fontSize: 5,
-			textColor: '#111111',
-			fillColor: '#43ABAC' //! important
-		},
-		didParseCell(data) {
-			console.log('data',data);			
-			data.cell.styles.fontSize = 6;
+// 		headerStyles: {
+// 			//  lineWidth: 1,
+// 			fontSize: 5,
+// 			textColor: '#111111',
+// 			fillColor: '#43ABAC' //! important
+// 		},
+// 		didParseCell(data) {
+// 			console.log('data',data);			
+// 			data.cell.styles.fontSize = 6;
 			
-			console.log(data);
-		},
+// 			console.log(data);
+// 		},
 		
-		didDrawPage: data => {
-			const pages = doc.internal.getNumberOfPages();
-			console.log(doc.internal);
-            console.log(doc.internal.pages.length);
-            let tot=doc.internal.pages.length
-			// Footer
-			const str = `Page ${doc.internal.getNumberOfPages()}` //+ `of ${doc.internal.pages.length - 1}`;
-			// Total page number plugin only available in jspdf v1.0+
-			if (typeof doc.putTotalPages === 'function') {
-				// str = `${str} of ${totalPagesExp}`;
-				//	console.log(doc.putTotalPages());
-			}
-			doc.setFontSize(6);
+// 		didDrawPage: data => {
+// 			const pages = doc.internal.getNumberOfPages();
+// 			console.log(doc.internal);
+//             console.log(doc.internal.pages.length);
+//             let tot=doc.internal.pages.length
+// 			// Footer
+// 			const str = `Page ${doc.internal.getNumberOfPages()}` //+ `of ${doc.internal.pages.length - 1}`;
+// 			// Total page number plugin only available in jspdf v1.0+
+// 			if (typeof doc.putTotalPages === 'function') {
+// 				// str = `${str} of ${totalPagesExp}`;
+// 				//	console.log(doc.putTotalPages());
+// 			}
+// 			doc.setFontSize(6);
 
-			// jsPDF 1.4+ uses getWidth, <1.4 uses .width
-			const { pageSize } = doc.internal;
-			const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
-			doc.text(str, data.settings.margin.left, pageHeight - 10);
-		},
-		margin: { top: 33 }
-	});
-	// we define the name of our PDF file.
-	// doc.autoTable({html: '#table', styles: {fontSize: 12}})
-	doc.save(`Summary_Report_${moment().format('MM_DD_YYYY_ h:mm:ss_A')}.pdf`);
-};
+// 			// jsPDF 1.4+ uses getWidth, <1.4 uses .width
+// 			const { pageSize } = doc.internal;
+// 			const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
+// 			doc.text(str, data.settings.margin.left, pageHeight - 10);
+// 		},
+// 		margin: { top: 33 }
+// 	});
+// 	// we define the name of our PDF file.
+// 	// doc.autoTable({html: '#table', styles: {fontSize: 12}})
+// 	doc.save(`Summary_Report_${moment().format('MM_DD_YYYY_ h:mm:ss_A')}.pdf`);
+// };
 
 //export excel
 
@@ -597,8 +597,8 @@ function myNewFunction(sel) {
         <h2 className="userTitle">Report</h2>
         </Col>
         <Col sm={2} md={2} lg={2}>
-        <Button  className="submitBtn"      
-      onClick={GeneratePDF}>Generate Pdf</Button>
+        {/* <Button  className="submitBtn"      
+      onClick={GeneratePDF}>Generate Pdf</Button> */}
         </Col>
         <Col sm={2} md={2} lg={2}>
           
